@@ -43,6 +43,18 @@ public class CustomArrayList2<T> implements CustomList<T> {
 		size++;
 		return true;
 	}
+	
+	 public T remove(int index) throws IndexOutOfBoundsException {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException();
+        }
+        T removedItem = (T) items[index];
+        for (int i = index; i < size - 1; i++) {
+            items[i] = items[i + 1];
+        }
+        size--;
+        return removedItem;
+    }
 
 
 }
