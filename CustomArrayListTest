@@ -1,0 +1,133 @@
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class CustomArrayListTest {
+    @Test
+    public void testAdd() {
+        CustomArrayList<String> list = new CustomArrayList<>();
+        // Positive test case
+        assertTrue(list.add("Hello"));
+        // Negative test case
+        assertFalse(list.add(null));
+    }
+
+    @Test
+    public void testGet() {
+        CustomArrayList<String> list = new CustomArrayList<>();
+        list.add("Hello");
+        list.add("World");
+        // Positive test case
+        assertEquals("Hello", list.get(0));
+        // Negative test case
+        assertThrows(IndexOutOfBoundsException.class, () -> list.get(2));
+    }
+}
+
+
+    @Test
+public void testAdd() {
+    CustomArrayList2<Integer> list = new CustomArrayList2<>();
+    list.add(1);
+    assertEquals(1, list.getSize());
+    assertEquals(1, (int)list.get(0));
+}
+ @Test
+public void testAdd_BoundaryCase() {
+    CustomArrayList2<Integer> list = new CustomArrayList2<>();
+    for (int i = 0; i < 10; i++) {
+        list.add(i);
+    }
+    assertEquals(10, list.getSize());
+    assertEquals(9, (int)list.get(9));
+}
+ @Test
+public void testAdd_EdgeCase() {
+    CustomArrayList2<Integer> list = new CustomArrayList2<>();
+    for (int i = 0; i < 11; i++) {
+        list.add(i);
+    }
+    assertEquals(11, list.getSize());
+    assertEquals(10, (int)list.get(10));
+}
+ @Test
+public void testAdd_CornerCase() {
+    CustomArrayList2<Integer> list = new CustomArrayList2<>();
+    for (int i = 0; i < 20; i++) {
+        list.add(i);
+    }
+    assertEquals(20, list.getSize());
+    assertEquals(19, (int)list.get(19));
+}
+
+@Test
+public void testAddIndex() {
+    CustomArrayList2<Integer> list = new CustomArrayList2<>();
+    list.add(0, 1);
+    assertEquals(1, list.getSize());
+    assertEquals(1, (int)list.get(0));
+}
+ @Test
+public void testAddIndex_BoundaryCase() {
+    CustomArrayList2<Integer> list = new CustomArrayList2<>();
+    for (int i = 0; i < 10; i++) {
+        list.add(i, i);
+    }
+    assertEquals(10, list.getSize());
+    assertEquals(9, (int)list.get(9));
+}
+ @Test
+public void testAddIndex_EdgeCase() {
+    CustomArrayList2<Integer> list = new CustomArrayList2<>();
+    for (int i = 0; i < 11; i++) {
+        list.add(i, i);
+    }
+    assertEquals(11, list.getSize());
+    assertEquals(10, (int)list.get(10));
+}
+ @Test
+public void testAddIndex_CornerCase() {
+    CustomArrayList2<Integer> list = new CustomArrayList2<>();
+    for (int i = 0; i < 20; i++) {
+        list.add(i, i);
+    }
+    assertEquals(20, list.getSize());
+    assertEquals(19, (int)list.get(19));
+}
+
+@Test
+public void testRemove() {
+    CustomArrayList2<Integer> list = new CustomArrayList2<>();
+    list.add(1);
+    list.remove(0);
+    assertEquals(0, list.getSize());
+}
+ @Test
+public void testRemove_BoundaryCase() {
+    CustomArrayList2<Integer> list = new CustomArrayList2<>();
+    for (int i = 0; i < 10; i++) {
+        list.add(i);
+    }
+    list.remove(9);
+    assertEquals(9, list.getSize());
+    assertEquals(8, (int)list.get(8));
+}
+ @Test
+public void testRemove_EdgeCase() {
+    CustomArrayList2<Integer> list = new CustomArrayList2<>();
+    for (int i = 0; i < 11; i++) {
+        list.add(i);
+    }
+    list.remove(10);
+    assertEquals(10, list.getSize());
+    assertEquals(9, (int)list.get(9));
+}
+ @Test
+public void testRemove_CornerCase() {
+    CustomArrayList2<Integer> list = new CustomArrayList2<>();
+    for (int i = 0; i < 20; i++) {
+        list.add(i);
+    }
+    list.remove(19);
+    assertEquals(19, list.getSize());
+    assertEquals(18, (int)list.get(18));
+}
